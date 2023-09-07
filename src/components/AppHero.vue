@@ -1,7 +1,21 @@
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      imagePath: "img/jumbotron.jpg",
+    };
+  },
+
+  methods: {
+    getImagePath(path) {
+      return new URL(`../assets/${path}`, import.meta.url).href;
+    },
+  },
+};
+</script>
 
 <template>
-  <img src="../assets/img/jumbotron.jpg" alt="Jumbotron" />
+  <img :src="getImagePath(imagePath)" alt="Jumbotron" />
 </template>
 
 <style scoped></style>
